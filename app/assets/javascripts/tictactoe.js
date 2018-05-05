@@ -49,12 +49,12 @@ function checkWinner(){
   $( "td" ).each(function( index ) {
     currentState[index] = $( this ).text();
   });
-
+  debugger;
   let find_winner = !!WIN_COMBINATIONS.find(function(combo){
                       return currentState[combo[0]] === currentState[combo[1]] &&
                              currentState[combo[1]] === currentState[combo[2]] &&
                              currentState[combo[0]] !== ""});
-
+             
   if (find_winner){
     setMessage(`Player ${player()} Won!`);
     return true;
