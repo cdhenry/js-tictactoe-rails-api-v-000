@@ -50,7 +50,7 @@ function checkWinner(){
     currentState[index] = $( this ).text();
   });
   debugger;
-  let find_winner = !!WIN_COMBINATIONS.find(function(combo){
+  let find_winner = WIN_COMBINATIONS.find(function(combo){
                       return currentState[combo[0]] === currentState[combo[1]] &&
                              currentState[combo[1]] === currentState[combo[2]] &&
                              currentState[combo[0]] !== ""});
