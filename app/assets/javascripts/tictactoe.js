@@ -56,6 +56,7 @@ function checkWinner(){
                              currentState[combo[0]] !== ""});
 
   if (find_winner){
+    debugger;
     setMessage(`Player ${player()} Won!`);
     return true;
   }else{
