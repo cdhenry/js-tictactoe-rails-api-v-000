@@ -35,7 +35,7 @@ function attachListeners(){
   });
 }
 
-var player = () => {return turn % 2 ? "O" : "X";}
+var player = () => return turn % 2 ? "O" : "X";
 
 function updateState(tile){
   tile.append(player())
