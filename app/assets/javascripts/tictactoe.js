@@ -9,6 +9,32 @@ $(function() {
   attachListeners();
 });
 
+function attachListeners(){
+  $('td').on('click', function() {
+    if (!$.text(this) && !checkWinner()) {
+      doTurn(this);
+    }
+  });
+  $("button#save").click(function(e){
+    saveGame();
+    e.preventDefault();
+  });
+  $("button#previous").click(function(e){
+    previousGames();
+    e.preventDefault();
+  });
+  $("button#clear").click(function(e){
+    clearBoard();
+    $("#message").empty();
+    e.preventDefault();
+  });
+  $("div#games").click(function(e){
+    currentGame = e.target.innerHTML
+    loadGame();
+    e.preventDefault();
+  });
+}
+
 function player(){
   return turn % 2 ? "O" : "X";
 }
@@ -98,31 +124,3 @@ function clearBoard(){
   currentState = ['','','','','','','','',''];
   currentGame = 0;
 }
-
-function attachListeners(){
-  $('td').on('click', function() {
-    if (!$.text(this) && !checkWinner()) {
-      doTurn(this);
-    }
-  });
-  $("button#save").click(function(e){
-    saveGame();
-    e.preventDefault();
-  });
-  $("button#previous").click(function(e){
-    previousGames();
-    e.preventDefault();
-  });
-  $("button#clear").click(function(e){
-    clearBoard();
-    $("#message").empty();
-    e.preventDefault();
-  });
-  $("div#games").click(function(e){
-    currentGame = e.target.innerHTML
-    loadGame();
-    e.preventDefault();
-  });
-}
-
-
