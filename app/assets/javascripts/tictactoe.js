@@ -46,18 +46,19 @@ function setMessage(message){
 }
 
 function checkWinner(){
+  let winner = false;
   $( "td" ).each(function( index ) {
     currentState[index] = $( this ).text();
   });
-  debugger;
-  var winner = WIN_COMBINATIONS.find(function(combo){
-                    return currentState[combo[0]] === currentState[combo[1]] &&
-                          currentState[combo[1]] === currentState[combo[2]] &&
-                          currentState[combo[0]] !== ""});
-
-  if (find_winner){
+  
+  winner = WIN_COMBINATIONS.find(function(combo){
+                  return currentState[combo[0]] === currentState[combo[1]] &&
+                        currentState[combo[1]] === currentState[combo[2]] &&
+                        currentState[combo[0]] !== ""});
+                        
+  if (winner){
     debugger;
-    setMessage(`Player ${player()} Won!`);
+    setMessage(`Player ${currentState[winner[0]]} Won!`);
     return true;
   }else{
     return false;
